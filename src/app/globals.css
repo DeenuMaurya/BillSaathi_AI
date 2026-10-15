@@ -1,0 +1,103 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Restrained, document-forward palette. A tool that handles other
+       people's tax records should read as instrument, not marketing site. */
+    --background: 0 0% 100%;
+    --foreground: 222 47% 11%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 11%;
+
+    --primary: 222 72% 32%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 210 40% 96%;
+    --secondary-foreground: 222 47% 11%;
+
+    --muted: 210 40% 96%;
+    --muted-foreground: 215 16% 47%;
+
+    --accent: 210 40% 96%;
+    --accent-foreground: 222 47% 11%;
+
+    --destructive: 0 72% 45%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214 32% 91%;
+    --input: 214 32% 91%;
+    --ring: 222 72% 32%;
+
+    --radius: 0.5rem;
+
+    /* Workflow states from docs/PRD.md section 8. Defined once so that
+       "needs review" looks identical everywhere it appears. Each is paired
+       with a text label in the UI -- colour alone never carries the meaning,
+       which matters both for accessibility and for printed exports. */
+    --status-processing: 217 91% 60%;
+    --status-review: 38 92% 50%;
+    --status-approved: 142 71% 36%;
+    --status-failed: 0 72% 51%;
+    --status-duplicate: 271 76% 53%;
+  }
+
+  .dark {
+    --background: 222 47% 7%;
+    --foreground: 210 40% 96%;
+
+    --card: 222 44% 10%;
+    --card-foreground: 210 40% 96%;
+
+    --primary: 213 85% 62%;
+    --primary-foreground: 222 47% 11%;
+
+    --secondary: 217 33% 17%;
+    --secondary-foreground: 210 40% 96%;
+
+    --muted: 217 33% 17%;
+    --muted-foreground: 215 20% 65%;
+
+    --accent: 217 33% 17%;
+    --accent-foreground: 210 40% 96%;
+
+    --destructive: 0 63% 50%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217 33% 20%;
+    --input: 217 33% 20%;
+    --ring: 213 85% 62%;
+
+    --status-processing: 217 91% 68%;
+    --status-review: 38 92% 58%;
+    --status-approved: 142 60% 50%;
+    --status-failed: 0 72% 62%;
+    --status-duplicate: 271 76% 65%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: 'rlig' 1, 'calt' 1;
+  }
+
+  /* Amounts, GSTINs and reference numbers get compared character by
+     character, so they need fixed-width digits that do not shift column
+     alignment as values change. */
+  .tabular {
+    font-variant-numeric: tabular-nums;
+    @apply font-mono;
+  }
+
+  /* Visible focus is not optional on a keyboard-driven data-entry tool. */
+  :focus-visible {
+    @apply outline-none ring-2 ring-ring ring-offset-2 ring-offset-background;
+  }
+}
