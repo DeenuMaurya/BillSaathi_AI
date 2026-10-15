@@ -1,0 +1,72 @@
+# Dependencies
+node_modules/
+.pnp
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/releases
+!.yarn/plugins
+!.yarn/sdks
+!.yarn/versions
+
+# Next.js build output
+.next/
+out/
+build/
+dist/
+
+# Production
+*.tsbuildinfo
+next-env.d.ts
+
+# Environment variables -- never commit real credentials.
+# .env.example is tracked on purpose and must contain placeholders only.
+.env
+.env.*
+!.env.example
+
+# Supabase local development artifacts
+supabase/.branches/
+supabase/.temp/
+supabase/.env
+
+# Testing
+coverage/
+.nyc_output/
+test-results/
+playwright-report/
+blob-report/
+.playwright/
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# Caches
+.eslintcache
+.cache/
+.turbo/
+.vercel/
+
+# Editors
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Local scratch -- uploaded samples and generated exports must stay out of git.
+# Invoices and bank statements are customer financial records.
+/tmp/
+/scratch/
+/samples/
+/local-uploads/
